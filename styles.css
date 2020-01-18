@@ -1,0 +1,39 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	
+}
+
+#calculator {
+	font-family: arial;
+	font-size: 0px;
+}
+
+.button {
+	display: inline-block;
+	height: 50px;
+	width: 100px;
+	text-align: center;
+	background-color: rgb(136, 176, 75);
+	color: white;
+	margin: 5px;
+	line-height: 50px;
+	border-radius: 7px;
+	font-size: 21px;
+	cursor: pointer;
+}
+
+#display {
+	display: inline-block;
+	height: 50px;
+	width: 320px;
+	text-align: center;
+	background-color: rgb(93, 140, 21);
+	color: white;
+	margin: 5px;
+	line-height: 50px;
+	border-radius: 7px;
+	font-size: 21px;
+}
