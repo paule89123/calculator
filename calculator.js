@@ -1,45 +1,61 @@
 calculator.js
 
 let display = document.getElementById('display');
+let history = document.getElementById('history');
 let calculation = "";
 let answerDisplayed = false;
+let result;
 
 document.querySelectorAll('.button').forEach(function(element) {
 	element.addEventListener('click', function() {
 
 		// the following if statements make the operator keys (+, -, /, *) inactive if they have already been pressed
+		// history.innerHTML = "Ans = " + result;
 
-		if(calculation.endsWith("+")) {
-			if(element.innerHTML === "+") {
+
+		if(calculation.endsWith("+ ")) {
+			if(element.innerHTML === " + ") {
 				return;
 			}
-		}
-
-		if(calculation.endsWith("-")) {
-			if(element.innerHTML === "-") {
-				return;
-			}
-		}
-
-		if(calculation.endsWith("*")) {
-			if(element.innerHTML === "*") {
-				return;
-			}
-			if(element.innerHTML === "/") {
-				calculation = calculation.slice(0,-1);
-				calculation += "/";
+			if(element.innerHTML === " - ") {
+				calculation = calculation.slice(0,-2);
+				calculation += "- ";
 				display.innerHTML = calculation;
 				return;
 			}
 		}
 
-		if(calculation.endsWith("/")) {
-			if(element.innerHTML === "/") {
+		if(calculation.endsWith("- ")) {
+			if(element.innerHTML === " - ") {
 				return;
 			}
-			if(element.innerHTML === "*") {
-				calculation = calculation.slice(0,-1);
-				calculation += "*";
+			if(element.innerHTML === " + ") {
+				calculation = calculation.slice(0,-2);
+				calculation += "+ ";
+				display.innerHTML = calculation;
+				return;
+			}
+		}
+
+		if(calculation.endsWith("× ")) {
+			if(element.innerHTML === " × ") {
+				return;
+			}
+			if(element.innerHTML === " ÷ ") {
+				calculation = calculation.slice(0,-2);
+				calculation += "÷ ";
+				display.innerHTML = calculation;
+				return;
+			}
+		}
+
+		if(calculation.endsWith("÷ ")) {
+			if(element.innerHTML === " ÷ ") {
+				return;
+			}
+			if(element.innerHTML === " × ") {
+				calculation = calculation.slice(0,-2);
+				calculation += "× ";
 				display.innerHTML = calculation;
 				return;
 			}
@@ -61,15 +77,21 @@ document.querySelectorAll('.button').forEach(function(element) {
 		// what happens when user presses AC button
 		if(element.innerHTML === "AC") {
 			calculation = "";
+			// history = "";
 			display.innerHTML = "0";
+			history.innerHTML = "";
 			return;
 		}
 
 		// what happens when user presses equals button
 		if(element.innerHTML === "=") {
-			calculation = eval(calculation)
-			display.innerHTML = calculation;
-			calculation = calculation.toString();
+			history.innerHTML = calculation;
+			calculation = calculation.replace("÷", "/");
+			calculation = calculation.replace("×", "*");
+			calculation = calculation.replace("%", "/100");
+			result = eval(calculation)
+			display.innerHTML = result;
+			calculation = result.toString();
 			answerDisplayed = true;
 			return;
 		}
