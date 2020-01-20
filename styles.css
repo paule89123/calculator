@@ -40,9 +40,9 @@ body {
 	right: -52px;
 	bottom: -52px;
 	background: #4364f7;
-	-webkit-filter: blur(10px);
-	-moz-filter: blur(150px);
-	filter: blur(150px);
+	/*-webkit-filter: blur(10px);*/
+	/*-moz-filter: blur(150px);*/
+	/*filter: blur(150px);*/
 	z-index: -1;
 }
 
