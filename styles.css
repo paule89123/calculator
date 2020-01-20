@@ -6,12 +6,13 @@
        -moz-user-select: none; /* Old versions of Firefox */
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Opera and Firefox */
+                                  supported by Chrome, Opera and Firefox */                                  
 }
 
 body {
 	background-image: linear-gradient(to right, #c31432, #240b36);
-    height: 1000px;
+    height: 700px;
+    overflow: hidden;
 }
 
 #calculator {
@@ -26,12 +27,12 @@ body {
 	/*top: 50%;*/
 	margin-top: 150px;
 	left: 50%;
-	margin-left: -200px;
+	margin-left: -227px;
 	padding: 5px;
-	/*box-shadow: 0px 0px 40px rgb(255,255,255, 0.15);*/
+	z-index: 2;
 }
 
-#calculator:after {
+#calculator::before {
 	content: "";
 	position: absolute;
 	top: -52px;
@@ -39,11 +40,13 @@ body {
 	right: -52px;
 	bottom: -52px;
 	background: #4364f7;
+	-webkit-filter: blur(10px);
+	-moz-filter: blur(150px);
 	filter: blur(150px);
 	z-index: -1;
 }
 
-#calculator:before {
+#calculator::after {
 	content: "";
 	position: absolute;
 	top: -2px;
@@ -61,8 +64,6 @@ body {
 	height: 50px;
 	width: 100px;
 	text-align: center;
-	/*border: solid 1px;*/
-	/*border-color: linear-gradient(rgb(136, 176, 75), rgb(136, 176, 75, 0.05));*/
 	color: white;
 	margin: 5px;
 	line-height: 50px;
@@ -70,7 +71,6 @@ body {
 	font-size: 20px;
 	cursor: pointer;
 	background-color: rgb(0,0,0,0.1);
-	/*box-shadow: 0px 0px 30px rgb(255,255,255, 0.1), 0px 1px 0px rgb(0,0,0,0.2);*/
 }
 
 
@@ -87,12 +87,16 @@ body {
 	font-size: 28px;
 	text-align: right;
 	padding-right: 18px;
-	/*box-shadow: 0px 0px 30px rgb(255,255,255, 0.1), 0px 2px 0px rgb(0,0,0,0.2);*/
+	overflow: hidden;
+	padding-left: 20px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+
 }
 
 #history {
 	display: inline-block;
-	height: 50px;
+	height: 31px;
 	width: 430px;
 	text-align: right;
 	background-color: rgb(25,19,38,0.2);
@@ -102,6 +106,7 @@ body {
 	border-radius: 5px 5px 0px 0px;
 	font-size: 16px;
 	padding-right: 18px;
+	overflow: hidden;
 }
 
 #ac-button {
@@ -118,6 +123,7 @@ body {
 
 #equals-button {
 	background-color: #4364f7;
+	/*filter: blur(150px)*/
 }
 
 .button:hover {
@@ -141,3 +147,65 @@ body {
 	opacity: 1;
 }
 
+.button:active {
+	/*filter: brightness(70%);*/
+	/*opacity: 90%;*/
+	transform: translateY(1px);
+}
+
+/*#ac-button:active {
+	opacity: 90%;
+}
+
+#multiply-button:active, #divide-button:active, #minus-button:active, #plus-button:active {
+	filter: brightness(130%) invert(1);
+	opacity: 90%;
+}
+
+#equals-button:active {
+	filter: brightness(90%);
+	opacity: 80%;
+}*/
+
+@media (max-width: 600px) {
+	body {
+		padding: 0px;
+		margin: 19px;
+		/*height: 800px;*/
+	}
+
+	#calculator {
+		padding: 0px;
+		margin: 0px;
+		width: 100%;
+		margin-left: -50%;
+	}
+
+	#display {
+		width: 100%;
+		/*padding: 0px;*/
+		margin: 0% 0% 4% 0%;
+	}
+
+	#history {
+		width: 100%;
+		/*padding: 0px;*/
+		margin: 0% 0% 0% 0%;
+	}
+
+	.button {
+		width: 22%;
+		/*padding-bottom: 22%;*/
+		/*padding-bottom: 11%;*/
+		/*margin-bottom: 10px;*/
+		/*height: 22%;*/
+		margin: 0% 4% 4% 0%;
+		/*border-radius: 50%;*/
+		/*vertical-align: text-bottom;*/
+		/*padding: 5px;*/
+	}
+
+	.final-column {
+		margin: 0% 0% 4% 0%;
+	}
+}	
