@@ -239,7 +239,7 @@ body {
 		margin: 0px;
 		top: 0px;
 		overflow: hidden;
-		/*height: 1200px;*/
+		background-image: linear-gradient(rgb(69,87,232,0.9) -20%, rgb(195,20,50,0.6), #240b36 120%);
 	}
 
 /*	#blue-blur-for-mobile {
@@ -278,9 +278,9 @@ body {
 		/*margin-top: 50%;*/
 	}
 
-/*	#calculator:before {
+	#calculator:before {
 		background: none;
-	}*/
+	}
 
 	#display-container {
 		display: inline-block;
