@@ -253,12 +253,12 @@ body {
 	}*/
 
 	#calculator {
-		position: absolute;
+		position: fixed;
 		top: 0px;
 		left: 0px;
 		bottom: 0px;
 		right: 0px;
-		overflow: hidden;
+		/*overflow: hidden;*/
 		/*background: lime;*/
 		/*margin: 0px;*/
 		border-radius: 0px;
