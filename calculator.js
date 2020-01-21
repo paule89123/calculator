@@ -5,16 +5,11 @@ let history = document.getElementById('history');
 let calculation = "";
 let answerDisplayed = false;
 let result;
-let width = 10;
-let counter = 28;
 
-document.querySelectorAll('.button').forEach(function(element) {
+document.querySelectorAll('.button-text').forEach(function(element) {
 	element.addEventListener('click', function() {
 
 		// the following if statements change the behaviour of the operator keys (+, -, /, *) depending on what the "calculation" string ends with
-
-		width = display.scrollWidth;
-		scaleFontSize();
 
 		if(calculation.endsWith("×  - ") || calculation.endsWith("×  + ") || calculation.endsWith("÷  - ") || calculation.endsWith("÷  + ")) {
 			if(element.innerHTML === " × " || element.innerHTML === " ÷ " || element.innerHTML === " + " || element.innerHTML === " - ") {
@@ -125,7 +120,6 @@ document.querySelectorAll('.button').forEach(function(element) {
 			calculation = "";
 			display.innerHTML = "0";
 			history.innerHTML = "";
-			counter = 28;
 			return;
 		}
 
@@ -144,37 +138,11 @@ document.querySelectorAll('.button').forEach(function(element) {
 			result = eval(calculation);
 			calculation = result.toString();
 			display.innerHTML = result;
-			width = display.scrollWidth;
-			scaleFontSize();
-			counter = 28;
 			return;
 		}
 
 		calculation += element.innerHTML;
 		display.innerHTML = calculation;
-
-		
 	});
 });
-
-function scaleFontSize() {
-
-    // We only want to scale down long text, so first we reset
-    // font-size to 100%, in case this function is called multiple times.
-    
-    // if (display.scrollWidth === display.clientWidth) {
-    // 	counter = 28;
-    // }
-
-    // Now actually check if the text is wider than
-    // its container, if so then reduce font-size
-    if (display.scrollWidth > 400) {
-    	// counter -= 0.5;
-    }
-    
-
-
-    display.style.fontSize = counter + "px";
-}
-
 
