@@ -1,12 +1,10 @@
-calculator.js
-
 let display = document.getElementById('display');
 let history = document.getElementById('history');
 let calculation = "";
 let answerDisplayed = false;
 let result;
 
-document.querySelectorAll('.button-text').forEach(function(element) {
+document.querySelectorAll('.button').forEach(function(element) {
 	element.addEventListener('click', function() {
 
 		// the following if statements change the behaviour of the operator keys (+, -, /, *) depending on what the "calculation" string ends with
