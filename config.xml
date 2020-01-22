@@ -3,7 +3,7 @@
     xmlns:gap   = "http://phonegap.com/ns/1.0"
     id          = "com.paul.calculator"
     versionCode = "10"
-    version     = "1.0.0" >
+    version     = "1.0.1" >
 
 <!-- versionCode is optional and Android only -->
 
@@ -16,5 +16,6 @@
   <author>
       Paul Evans
   </author>
+  <icon src="icon.png"/>
 
 </widget>
