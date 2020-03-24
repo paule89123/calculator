@@ -10,7 +10,7 @@
 }
 
 body {
-	background-image: linear-gradient(to right, #c31432, #240b36);
+	background-color: #240b36;
     height: 700px;
     overflow: hidden;
 }
@@ -32,7 +32,7 @@ body {
 	left: -600px;
 	right: -600px;
 	bottom: -600px;
-	background: radial-gradient(rgb(69,87,232) 8%, rgb(0,0,0,0) 50%);
+	background: radial-gradient(rgb(65,87,232) -10%, rgb(0,0,0,0) 70%);
 	z-index: -1;
 }
 
@@ -46,7 +46,7 @@ body {
 	line-height: 50px;
 	text-align: right;
 	color: white;
-	background-color: rgb(25,19,38,0.2);
+	background-color: rgb(25,19,38,0.17);
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
@@ -61,7 +61,7 @@ body {
 	line-height: 50px;
 	text-align: right;
 	color: rgb(255,255,255,0.4);
-	background-color: rgb(25,19,38,0.2);	
+	background-color: rgb(25,19,38,0.17);	
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
@@ -76,7 +76,7 @@ body {
 	line-height: 50px;
 	text-align: center;
 	color: white;
-	background-color: rgb(0,0,0,0.1);
+	background-color: rgb(25,19,38,0.17);
 	cursor: pointer;
 }
 
